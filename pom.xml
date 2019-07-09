@@ -1,0 +1,123 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <groupId>com.haoliwan</groupId>
+    <artifactId>propagation</artifactId>
+    <version>1.0-SNAPSHOT</version>
+    <packaging>pom</packaging>
+    <description>事务传播机制</description>
+
+    <modules>
+        <module>propagation-web</module>
+        <module>propagation-start</module>
+        <module>propagation-biz</module>
+        <module>propagation-common</module>
+        <module>propagation-domain</module>
+        <module>propagation-mybatis-generator</module>
+    </modules>
+
+
+    <!--定义属性值-->
+    <properties>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
+        <java.version>1.8</java.version>
+        <spring.boot.version>2.1.6.RELEASE</spring.boot.version>
+        <mybatis-spring-boot-starter.version>1.1.1</mybatis-spring-boot-starter.version>
+        <mybatis.version>3.4.0</mybatis.version>
+        <mybatis-generator.version>1.3.2</mybatis-generator.version>
+        <mysql-connector-java.version>5.1.6</mysql-connector-java.version>
+
+        <propagation-web.version>1.0-SNAPSHOT</propagation-web.version>
+        <propagation-biz.version>1.0-SNAPSHOT</propagation-biz.version>
+        <propagation-common.version>1.0-SNAPSHOT</propagation-common.version>
+        <propagation-domain.version>1.0-SNAPSHOT</propagation-domain.version>
+        <propagation-mybatis-generator.version>1.0-SNAPSHOT</propagation-mybatis-generator.version>
+
+    </properties>
+
+    <!-- 依赖声明 -->
+    <dependencyManagement>
+        <dependencies>
+            <dependency>
+                <groupId>com.haoliwan</groupId>
+                <artifactId>propagation-web</artifactId>
+                <version>${propagation-web.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.haoliwan</groupId>
+                <artifactId>propagation-biz</artifactId>
+                <version>${propagation-biz.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.haoliwan</groupId>
+                <artifactId>propagation-domain</artifactId>
+                <version>${propagation-domain.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.haoliwan</groupId>
+                <artifactId>propagation-common</artifactId>
+                <version>${propagation-common.version}</version>
+            </dependency>
+            <!-- SpringBoot的依赖配置-->
+            <dependency>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-dependencies</artifactId>
+                <version>${spring.boot.version}</version>
+                <type>pom</type>
+                <scope>import</scope>
+            </dependency>
+            <dependency>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-starter-web</artifactId>
+                <version>${spring.boot.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-starter-test</artifactId>
+                <scope>test</scope>
+                <version>${spring.boot.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.mybatis.spring.boot</groupId>
+                <artifactId>mybatis-spring-boot-starter</artifactId>
+                <version>${mybatis-spring-boot-starter.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.mybatis</groupId>
+                <artifactId>mybatis</artifactId>
+                <version>${mybatis.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.mybatis.generator</groupId>
+                <artifactId>mybatis-generator-core</artifactId>
+                <version>${mybatis-generator.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>mysql</groupId>
+                <artifactId>mysql-connector-java</artifactId>
+                <version>${mysql-connector-java.version}</version>
+            </dependency>
+        </dependencies>
+    </dependencyManagement>
+
+    <!--编译管理 jdk版本和字符集编码-->
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <configuration>
+                    <source>${java.version}</source>
+                    <target>${java.version}</target>
+                    <encoding>${project.build.sourceEncoding}</encoding>
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
+
+
+</project>
